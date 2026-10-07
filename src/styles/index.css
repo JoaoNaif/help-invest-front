@@ -1,0 +1,52 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/fraunces';
+
+/* Tokens do tema (somente escuro). Ver docs/03-ux-e-design.md */
+@theme {
+  --color-bg: #0b0d12;
+  --color-surface: #12151c;
+  --color-surface-2: #181c26;
+  --color-border: #232838;
+  --color-text: #edebe6;
+  --color-muted: #9aa0ae;
+
+  /* Marca. Nunca usar para alertas. */
+  --color-gold: #c9a24b;
+  --color-gold-hover: #d9b565;
+  --color-on-gold: #17130a;
+
+  /* Severidade dos alertas */
+  --color-info: #7d9bb8;
+  --color-warning: #e08a3c;
+  --color-danger: #e5534b;
+
+  /* Variações */
+  --color-gain: #4fb286;
+  --color-loss: #e5534b;
+
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces Variable', ui-serif, Georgia, serif;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-bg text-text font-sans antialiased;
+    font-variant-numeric: tabular-nums;
+    min-height: 100dvh;
+  }
+
+  h1,
+  h2 {
+    @apply font-display tracking-tight;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+}
