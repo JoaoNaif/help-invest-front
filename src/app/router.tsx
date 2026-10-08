@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router'
 import { AuthPage } from '@/features/auth/pages/AuthPage'
 import { ComparePage } from '@/features/comparison/pages/ComparePage'
+import { ComparisonPage } from '@/features/comparison/pages/ComparisonPage'
 import { HistoryPage } from '@/features/comparison/pages/HistoryPage'
 import { PortfolioPage } from '@/features/portfolio/pages/PortfolioPage'
 import { ProfilePage } from '@/features/profile/pages/ProfilePage'
@@ -16,6 +17,7 @@ export const router = createBrowserRouter([
         element: <AppLayout />,
         children: [
           { index: true, element: <ComparePage /> },
+          { path: 'comparacoes/:id', element: <ComparisonPage /> },
           { path: 'carteira', element: <PortfolioPage /> },
           { path: 'historico', element: <HistoryPage /> },
           { path: 'perfil', element: <ProfilePage /> },

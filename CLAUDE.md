@@ -22,7 +22,7 @@ O backend (NestJS) fica em `../backend`. Contrato HTTP: `../backend/docs/09-api-
 - **O front não faz conta.** Taxa líquida, IR, concentração e alertas vêm prontos do backend. Só exibir e formatar.
 - Dinheiro e taxas chegam como **`string`**. Nunca `parseFloat`/float para somar ou comparar; usar `decimal.js` e `Intl.NumberFormat('pt-BR')`.
 - `rate` depende do `indexer` (CDI → "% do CDI", IPCA → "IPCA + x%", PRE → "x% a.a.", SELIC → "Selic + x%").
-- Explicação do LLM é **informativa, não recomendação**: manter o aviso na tela. Explicação **só por botão** (gasta crédito).
+- Explicação do LLM **pode indicar a opção que mais combina com o objetivo do usuário, com prós e contras** (ver D16), mas segue **informativa, não recomendação formal**: manter o aviso na tela. Explicação **só por botão** (gasta crédito).
 - Nunca pedir senha de corretora. Imagens de print não são armazenadas; enviar base64 sem prefixo `data:`.
 - Alertas: mostrar `message`; `severity` define cor/ícone; `code` desconhecido não quebra a tela.
 

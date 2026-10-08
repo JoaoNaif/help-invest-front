@@ -46,3 +46,8 @@ export function formatCalendarDate(value: string): string {
   const [y, m, d] = value.split('-')
   return `${d}/${m}/${y}`
 }
+
+/** Timestamp ISO (UTC) → "dd/mm/aaaa" no fuso do usuário. Só para timestamps, nunca para datas de calendário. */
+export function formatTimestampDate(value: string): string {
+  return new Date(value).toLocaleDateString('pt-BR')
+}

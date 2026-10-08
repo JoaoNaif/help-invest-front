@@ -17,6 +17,17 @@ export async function fetchMe(): Promise<User> {
   return meResponseSchema.parse(data).user
 }
 
+export type RegisterInput = { name: string; email: string; password: string }
+export type LoginInput = { email: string; password: string }
+
+export async function createAccount(input: RegisterInput): Promise<void> {
+  await api.post('/accounts', input)
+}
+
+export async function createSession(input: LoginInput): Promise<void> {
+  await api.post('/sessions', input)
+}
+
 export async function logout(): Promise<void> {
   await api.delete('/sessions')
 }

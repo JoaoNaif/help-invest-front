@@ -71,3 +71,12 @@ Formato: decisão · motivo · alternativas descartadas. Data: 2026-10-06 (sess�
 ## D15. Deploy adiado
 
 - Muito teste local antes. Lembrete: em produção front e API precisam ficar sob o mesmo domínio base (cookies `SameSite=Strict`). Ver [02](./02-stack-e-arquitetura.md).
+
+## D16. Explicação indica uma opção (com prós e contras) e considera o objetivo
+
+- **2026-10-07.** A explicação deixa de ser só descritiva: indica a opção que mais combina com o usuário, com um resumo curto, o motivo da indicação e **prós e contras de cada opção**, em linguagem simples (público: pessoas que entendem de investir, mas não são especialistas). O aviso permanece: é informativo, não recomendação formal, e a decisão é do investidor. Atenção: se o produto virar serviço, revisar com a CVM (ver CLAUDE.md).
+- Campo **opcional "objetivo"** na entrada da comparação (`RESERVE`, `RETIREMENT`, `PURCHASE`, `GROWTH`), enviado no `POST /comparisons` e usado na explicação. Depende do backend (lista de pendências abaixo).
+- O front aceita a explicação nos dois formatos (texto corrido antigo e objeto estruturado) até o backend migrar.
+- "Como calculamos" virou texto em linguagem simples (passos, taxas de mercado usadas, uma frase por opção e observações), lido de `assumptions` de forma defensiva (campo desconhecido é ignorado).
+- Opções recentes vêm do backend (`GET /comparison-options/recent`, até 8 distintas), então sincronizam entre dispositivos.
+- Data de vencimento usa calendário próprio (dia → toque no mês → toque no ano).
