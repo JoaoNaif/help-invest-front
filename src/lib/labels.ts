@@ -88,3 +88,14 @@ const goalLabels: Record<string, string> = {
 }
 
 export const goalLabel = (value: string) => goalLabels[value] ?? value
+
+export const RISK_LEVELS = ['LOW', 'MEDIUM', 'HIGH'] as const
+
+const riskLabels: Record<string, { label: string; hint: string }> = {
+  LOW: { label: 'Conservador', hint: 'Prefiro não ver meu dinheiro oscilar.' },
+  MEDIUM: { label: 'Moderado', hint: 'Aceito oscilar um pouco por mais retorno.' },
+  HIGH: { label: 'Arrojado', hint: 'Aceito oscilar bastante atrás de retorno maior.' },
+}
+
+export const riskLabel = (value: string) => riskLabels[value]?.label ?? value
+export const riskHint = (value: string) => riskLabels[value]?.hint ?? ''

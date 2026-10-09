@@ -20,7 +20,7 @@ Entrada (print/texto/manual) → conferência → avaliar → resultado com rank
 
 Lista paginada e detalhe de comparações.
 
-## Etapa 4 — Perfil
+## Etapa 4 — Perfil (concluída em 2026-10-09)
 
 Formulário do investidor e aviso de perfil desatualizado/ausente (já integrado aos alertas desde a etapa 2).
 

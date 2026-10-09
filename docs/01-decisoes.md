@@ -80,3 +80,10 @@ Formato: decisão · motivo · alternativas descartadas. Data: 2026-10-06 (sess�
 - "Como calculamos" virou texto em linguagem simples (passos, taxas de mercado usadas, uma frase por opção e observações), lido de `assumptions` de forma defensiva (campo desconhecido é ignorado).
 - Opções recentes vêm do backend (`GET /comparison-options/recent`, até 8 distintas), então sincronizam entre dispositivos.
 - Data de vencimento usa calendário próprio (dia → toque no mês → toque no ano).
+
+## D17. Tela de perfil (etapa 4)
+
+- **2026-10-09.** Uma tela só (`/perfil`): renda mensal, reserva de emergência, objetivo (mesmo enum do comparador), horizonte em meses e tolerância a risco (`LOW`/`MEDIUM`/`HIGH`, exibidos como Conservador/Moderado/Arrojado).
+- `GET /investor-profile` com `404` vira **estado vazio** (formulário em branco), não erro. `isOutdated` mostra aviso de revisão; salvar zera o aviso.
+- Perfil nunca bloqueia: o comparador funciona sem ele e só mostra o aviso com link para `/perfil`.
+- Todos os campos são obrigatórios no `PUT` (contrato do backend); valores monetários vão como string normalizada, sem float.
