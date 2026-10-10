@@ -25,6 +25,18 @@ export const router = createBrowserRouter([
             }),
           },
           { path: 'historico', element: <HistoryPage /> },
+          {
+            path: 'acoes',
+            lazy: async () => ({
+              Component: (await import('@/features/stocks/pages/StocksPage')).StocksPage,
+            }),
+          },
+          {
+            path: 'acoes/:id',
+            lazy: async () => ({
+              Component: (await import('@/features/stocks/pages/StockAnalysisPage')).StockAnalysisPage,
+            }),
+          },
           { path: 'perfil', element: <ProfilePage /> },
         ],
       },

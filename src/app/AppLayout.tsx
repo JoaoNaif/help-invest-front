@@ -1,8 +1,9 @@
-import { BarChart3, History, Scale, UserRound, type LucideIcon } from 'lucide-react'
+import { BarChart3, History, Scale, TrendingUp, UserRound, type LucideIcon } from 'lucide-react'
 import { NavLink, Outlet } from 'react-router'
 
 const items: { to: string; label: string; icon: LucideIcon }[] = [
   { to: '/', label: 'Comparar', icon: Scale },
+  { to: '/acoes', label: 'Ações', icon: TrendingUp },
   { to: '/carteira', label: 'Carteira', icon: BarChart3 },
   { to: '/historico', label: 'Histórico', icon: History },
   { to: '/perfil', label: 'Perfil', icon: UserRound },
@@ -58,7 +59,7 @@ export function AppLayout() {
 
       {/* Mobile: navegação inferior */}
       <nav
-        className="fixed inset-x-0 bottom-0 z-10 grid grid-cols-4 border-t border-border bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden"
+        className="fixed inset-x-0 bottom-0 z-10 grid grid-cols-5 border-t border-border bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden"
         aria-label="Principal"
       >
         {items.map(({ to, label, icon: Icon }) => (

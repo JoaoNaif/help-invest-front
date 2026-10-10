@@ -96,3 +96,12 @@ Formato: decisão · motivo · alternativas descartadas. Data: 2026-10-06 (sess�
 - Percentuais, FGC e alertas vêm do backend; o front só usa o valor (`Decimal.toNumber`) para dimensionar fatias da rosca. Cores da rosca evitam vermelho/laranja (reservados a alertas).
 - `AlertList` e `alertSchema` foram para `components/ui` e `lib/alerts.ts` (usados por comparador e carteira, já que feature não importa de feature).
 - Página da carteira carrega sob demanda (`lazy`) para tirar o Recharts do bundle inicial.
+
+## D19. Análise de ações
+
+- **2026-10-09.** Nova feature `stocks` (`/acoes` e `/acoes/:id`), item "Ações" na navegação. Consome `POST/GET /stock-analyses` (backend sem LLM por ora; a explicação em texto vem depois).
+- Entrada: 1 ticker, ou 2 para comparar lado a lado, com valor a investir opcional. Análise leva ~3 s: estado de carregamento explícito.
+- Valores desta seção chegam com 2 casas fixas e `null` = **dado indisponível, nunca zero**: a UI mostra "—" ou "sem dados".
+- Preço teto sempre com nome do método e premissa; valuation com rótulos neutros ("Abaixo/Na média/Acima dos concorrentes"), sem "compre/venda". Consenso sempre com o nº de analistas. Aviso fixo de que é informação, não recomendação.
+- Cada item mostra fonte e data da cotação. `assumptions` é lido de forma solta (painel "Como calculamos").
+- Listagem `GET /stock-analyses` já devolve a análise completa (sem resumo): a lista usa tickers, preço e data direto dela; sem mudança no backend.

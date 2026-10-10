@@ -51,3 +51,20 @@ export function formatCalendarDate(value: string): string {
 export function formatTimestampDate(value: string): string {
   return new Date(value).toLocaleDateString('pt-BR')
 }
+
+const fixed = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+
+/** Número com 2 casas fixas (múltiplos, LPA...). `null` = dado indisponível, nunca zero: mostra "—". */
+export function formatFixed(value: string | null | undefined): string {
+  return value == null ? '—' : fixed.format(new Decimal(value).toNumber())
+}
+
+/** Percentual em pontos percentuais; `null` mostra "—". */
+export function formatPercentOrDash(value: string | null | undefined, digits = 2): string {
+  return value == null ? '—' : formatPercent(value, digits)
+}
+
+/** Dinheiro; `null` mostra "—". */
+export function formatMoneyOrDash(value: string | null | undefined): string {
+  return value == null ? '—' : formatMoney(value)
+}

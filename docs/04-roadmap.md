@@ -28,6 +28,10 @@ Formulário do investidor e aviso de perfil desatualizado/ausente (já integrado
 
 CRUD de posições e resumo (Recharts: alocação; FGC por emissor; alertas).
 
+## Etapa 6 — Análise de ações (concluída em 2026-10-09)
+
+Formulário (1 ou 2 tickers), detalhe lado a lado (indicadores, dividendos, preço teto, concorrentes, consenso, alertas) e histórico. Falta a explicação do LLM, que o backend ainda não expõe.
+
 ## Depois
 
 Testes (Vitest + Testing Library, Playwright), tema claro, Swagger/OpenAPI para gerar o client, PWA se fizer sentido, deploy (mesmo domínio base da API).

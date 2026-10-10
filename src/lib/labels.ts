@@ -110,3 +110,20 @@ const riskLabels: Record<string, { label: string; hint: string }> = {
 
 export const riskLabel = (value: string) => riskLabels[value]?.label ?? value
 export const riskHint = (value: string) => riskLabels[value]?.hint ?? ''
+
+const verdictLabels: Record<string, string> = {
+  CHEAP: 'Abaixo dos concorrentes',
+  FAIR: 'Na média dos concorrentes',
+  EXPENSIVE: 'Acima dos concorrentes',
+  UNAVAILABLE: 'Não comparável',
+}
+
+export const verdictLabel = (value: string) => verdictLabels[value] ?? verdictLabels.UNAVAILABLE
+
+const ceilingMethodLabels: Record<string, { name: string; premise: string }> = {
+  BAZIN: { name: 'Bazin', premise: 'média anual de dividendos ÷ 6%' },
+  GRAHAM: { name: 'Graham', premise: '√(22,5 × lucro por ação × valor patrimonial por ação)' },
+}
+
+export const ceilingMethodName = (value: string) => ceilingMethodLabels[value]?.name ?? value
+export const ceilingMethodPremise = (value: string) => ceilingMethodLabels[value]?.premise ?? ''
