@@ -87,3 +87,12 @@ Formato: decisão · motivo · alternativas descartadas. Data: 2026-10-06 (sess�
 - `GET /investor-profile` com `404` vira **estado vazio** (formulário em branco), não erro. `isOutdated` mostra aviso de revisão; salvar zera o aviso.
 - Perfil nunca bloqueia: o comparador funciona sem ele e só mostra o aviso com link para `/perfil`.
 - Todos os campos são obrigatórios no `PUT` (contrato do backend); valores monetários vão como string normalizada, sem float.
+
+## D18. Carteira (etapa 5)
+
+- **2026-10-09.** Uma tela (`/carteira`): resumo no topo (total, rosca de alocação por tipo/indexador, FGC por emissor, alertas) e lista de posições com criar/editar/excluir. Formulário inline; excluir pede confirmação.
+- Formulário mostra só tipo, valor e nome; indexador/taxa e "mais detalhes" (emissor, CNPJ, datas, liquidez) são opcionais. Taxa só é enviada junto com indexador.
+- **PATCH envia só o que mudou** (ausente = não altera, `null` = limpa), comparando com a posição original normalizada.
+- Percentuais, FGC e alertas vêm do backend; o front só usa o valor (`Decimal.toNumber`) para dimensionar fatias da rosca. Cores da rosca evitam vermelho/laranja (reservados a alertas).
+- `AlertList` e `alertSchema` foram para `components/ui` e `lib/alerts.ts` (usados por comparador e carteira, já que feature não importa de feature).
+- Página da carteira carrega sob demanda (`lazy`) para tirar o Recharts do bundle inicial.

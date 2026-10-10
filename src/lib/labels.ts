@@ -60,7 +60,18 @@ const liquidityLabels: Record<string, string> = {
   GRACE_PERIOD: 'Diária após carência',
 }
 
-export const assetTypeLabel = (value: string) => assetTypeLabels[value] ?? value
+/** Nome do indexador como grupo (resumo da carteira), sem o sufixo de taxa. */
+const indexerGroupLabels: Record<string, string> = {
+  CDI: 'CDI',
+  IPCA: 'IPCA +',
+  PRE: 'Prefixado',
+  SELIC: 'Selic +',
+}
+
+export const indexerGroupLabel = (value: string | null) =>
+  value === null ? 'Sem indexador' : (indexerGroupLabels[value] ?? value)
+
+export const assetTypeLabel =(value: string) => assetTypeLabels[value] ?? value
 export const indexerLabel = (value: string) => indexerLabels[value] ?? value
 export const liquidityLabel = (value: string) => liquidityLabels[value] ?? value
 

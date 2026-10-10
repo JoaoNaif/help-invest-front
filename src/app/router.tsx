@@ -3,7 +3,6 @@ import { AuthPage } from '@/features/auth/pages/AuthPage'
 import { ComparePage } from '@/features/comparison/pages/ComparePage'
 import { ComparisonPage } from '@/features/comparison/pages/ComparisonPage'
 import { HistoryPage } from '@/features/comparison/pages/HistoryPage'
-import { PortfolioPage } from '@/features/portfolio/pages/PortfolioPage'
 import { ProfilePage } from '@/features/profile/pages/ProfilePage'
 import { AppLayout } from './AppLayout'
 import { ProtectedRoute } from './ProtectedRoute'
@@ -18,7 +17,13 @@ export const router = createBrowserRouter([
         children: [
           { index: true, element: <ComparePage /> },
           { path: 'comparacoes/:id', element: <ComparisonPage /> },
-          { path: 'carteira', element: <PortfolioPage /> },
+          {
+            path: 'carteira',
+            // Recharts pesa: a carteira carrega sob demanda.
+            lazy: async () => ({
+              Component: (await import('@/features/portfolio/pages/PortfolioPage')).PortfolioPage,
+            }),
+          },
           { path: 'historico', element: <HistoryPage /> },
           { path: 'perfil', element: <ProfilePage /> },
         ],

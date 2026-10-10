@@ -1,5 +1,5 @@
 import { Info, OctagonAlert, TriangleAlert, type LucideIcon } from 'lucide-react'
-import type { Alert } from '../api/comparison'
+import type { Alert } from '@/lib/alerts'
 
 const styles: Record<Alert['severity'], { icon: LucideIcon; classes: string; label: string }> = {
   INFO: { icon: Info, classes: 'border-info/30 bg-info/10 text-info', label: 'Informação' },

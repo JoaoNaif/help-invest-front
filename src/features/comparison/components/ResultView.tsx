@@ -7,7 +7,7 @@ import { formatCalendarDate, formatPercent, formatRate, type Indexer } from '@/l
 import { assetTypeLabel, liquidityLabel } from '@/lib/labels'
 import type { Alert, ComparisonDetail, ComparisonOption } from '../api/comparison'
 import { useChooseOption, useExplain } from '../hooks/useComparison'
-import { AlertList } from './AlertList'
+import { AlertList } from '@/components/ui/AlertList'
 import { AssumptionsPanel } from './AssumptionsPanel'
 import { ExplanationPanel } from './ExplanationPanel'
 

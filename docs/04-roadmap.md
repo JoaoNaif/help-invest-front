@@ -24,7 +24,7 @@ Lista paginada e detalhe de comparações.
 
 Formulário do investidor e aviso de perfil desatualizado/ausente (já integrado aos alertas desde a etapa 2).
 
-## Etapa 5 — Carteira
+## Etapa 5 — Carteira (concluída em 2026-10-09)
 
 CRUD de posições e resumo (Recharts: alocação; FGC por emissor; alertas).
 
